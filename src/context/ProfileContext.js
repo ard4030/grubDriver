@@ -20,7 +20,7 @@ export const ProfileWrapper = ({children}) => {
         transport_description:""
     })
     const [error,setError] = useState({});
-    const [loading,setLoading] = useState(false);
+    const [loading,setLoading] = useState(true);
 
     const getData = async () => {
         setLoading(true)
@@ -52,7 +52,6 @@ export const ProfileWrapper = ({children}) => {
         setLoading(true)
         let x = details;
         x['documents'] = JSON.stringify(details.documents)
-        console.log(x)
         const res = await fetchData('/updateProfile','POST',x);
         if(res.success){
             if(res.data.code === 1){

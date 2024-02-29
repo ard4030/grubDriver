@@ -6,6 +6,7 @@ import { Avatar } from '@mui/material'
 import { deepOrange } from '@mui/material/colors'
 import { useContext, useState } from 'react'
 import LoadingFull from '../global/LoadingFull/LoadingFull'
+import LoadingFullNew from '../global/LoadingFullNew/LoadingFullNew'
 import AccountDetails from './AccountDetails'
 import styles from './allcont.module.css'
 import Head from './Head'
@@ -13,13 +14,13 @@ import LicenseImagesComp from './LicenseImagesComp'
 
 
 const AllCont = () => {
-    const {details, setDetails,loading,error,saveData} = useContext(ProfileContext);
-    const {user} = useContext(AuthContext);
-
+    const {loading,saveData} = useContext(ProfileContext);
   return (
-    <div className={styles.allCont}>
+    <div 
+    onClick={() => console.log(loading)}
+    className={styles.allCont}>
         <Head title={"Account"} />
-        {loading && <LoadingFull />}
+        {loading && <LoadingFullNew />}
         <div className={styles.myContent}>
 
             <div className={styles.left}>

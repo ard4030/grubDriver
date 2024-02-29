@@ -11,6 +11,7 @@ export const fetchData = async (api,method,data,myFormData) => {
             })
         }
         formData.append("token",token)
+        formData.append("api_key",process.env.NEXT_PUBLIC_API_KEY)
         res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/drivers/api${api}`,{
             method:method?method:'POST',
             body:formData

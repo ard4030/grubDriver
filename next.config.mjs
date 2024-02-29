@@ -21,7 +21,13 @@ const nextConfig = {
                 pathname: '/**',
               },
 
-              
+              {
+                protocol: 'https',
+                hostname: 'grub24.co.uk',
+                port: '',
+                pathname: '/**',
+              },
+
             ],
         },
 };

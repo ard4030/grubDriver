@@ -59,6 +59,7 @@ const AllCont = () => {
         const formData = new FormData();
         formData.append("data",JSON.stringify(account));
         formData.append("token",localStorage.getItem("driverToken"))
+        formData.append("api_key",process.env.NEXT_PUBLIC_API_KEY)
         const res = await fetchData('/saveAccountBankWeb','POST',{},formData);
         if(res.success){
             if(res.data.code === 1){
