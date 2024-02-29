@@ -1,0 +1,111 @@
+.sideBar{
+    padding: 20px;
+}
+
+.contImage{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    box-shadow: 4px 10px 9px #e5e5e5;
+    border-radius: 100px;
+}
+
+.topProf{
+    display: flex;
+    align-items: center;
+    padding-left: 29px;
+    margin-bottom: 20px;
+}
+
+.userStatus{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.text h5{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.text span{
+    font-size: 12px;
+    display: block;
+    color: #afaaaa;
+    font-weight: 100;
+}
+
+.sectionList{
+    padding-left: 30px;
+    margin-top: 50px;
+}
+
+.sectionList ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 0px;
+    margin-top: 20px;
+}
+
+.sectionList > span{
+    color: var(--lightColor);
+    font-size: 14px;
+    font-weight: 199;
+    letter-spacing: 1px;
+}
+
+.sectionList ul li {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.sectionList ul li:hover{
+    color: var(--main)!important;
+    position: relative;
+}
+
+.sectionList ul li svg{
+    font-size: 18px;
+}
+
+.sectionList ul li span{
+    margin-left: 15px;
+    font-weight: 200;
+}
+
+.active{
+    color: var(--main)!important;
+    position: relative;
+}
+
+.active::before{
+    position: absolute;
+    left: -36px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--main);
+    content: "";
+    border-radius: 100px;
+}
+
+.topProf{
+    display: flex;
+    align-items: center;
+}
+
+.topProf .logo{
+    width: 30px;
+    height: 37px;
+    display: inline-block;
+    background: url(../../../public/Images/grubpng.png) no-repeat center;
+    background-size: 100% 100%;
+    margin-right: 12px;
+}

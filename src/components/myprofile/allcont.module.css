@@ -1,0 +1,110 @@
+.allCont h3{
+    font-weight: 400;
+}
+
+.myContent{
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.contItems{
+    width: 100%;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profPic{
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 45%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.last{
+    margin-bottom: 0!important;
+}
+
+.contLicence{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.licenceImage{
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.licenceImage{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.alerting{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.hl1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.hl1 h3{
+    margin: 0;
+}
+
+.left{
+    width: 70%;
+}
+
+.right{
+    width: 27%;
+}
+
+.nameProf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px
+}
+
+.nameProf > h3{
+    margin: 0;
+}
+
+.nameProf span{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url(../../../public/Images/check.png) no-repeat center;
+  background-size: 100% 100%;
+  margin-left: 6px;
+}
+
+.footerBotton{
+    margin-top: 15px;
+}

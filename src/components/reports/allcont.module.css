@@ -1,0 +1,46 @@
+.myContent{
+    padding: 35px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.topDetails{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  margin-bottom: 100px;
+  margin-top: 20px;
+} 
+
+.topDetails > div{
+  width: 45%!important;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.es1{
+  font-size: 48px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.es2{
+  font-weight: 200;
+  color: #9f9d9d;
+}
+
+.es5{
+  width: 50px;
+  height: 50px;
+  background: #eee;
+  border-radius: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-left: 11px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,133 @@
+.headDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contImage{
+    position: relative;
+    width: 130px;
+    height: 78px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.headDetails > div > span{
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.headDetails > div > p{
+    color: #8f8e8e;
+    margin: 0;
+      margin-top: 0px;
+    font-size: 12px;
+    font-weight: 200;
+    margin-top: 4px;
+}
+
+.lengthItems{
+    color: var(--main);
+    font-size: 14px;
+    display: block;
+}
+
+.contDetails{
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.headDet{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.headDet h5{
+    margin: 0;
+    font-weight: 400;
+}
+
+.headDet button{
+    background: orange;
+    font-weight: 200;
+    font-family: inherit;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fffafa;
+    text-shadow: 0px 0px 2px #000;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+}
+
+.item > span{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.naming{
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.ico{
+    font-size: 20px;
+}
+
+span.dst{
+    font-weight: 400;
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.paymentPending{
+    font-size: 14px;
+    font-weight: 200;
+    border-top: 2px dashed #ccc;
+    width: 100%;
+    display: inline-block;
+    padding-top: 12px;
+}
+
+.el1{
+    font-weight: 400;
+    color: #f74d4d;
+}
+
+.dlDet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.deliveryDetails h5{
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.el2 span{
+    display: block;
+    font-size: 14px;
+}
+
+.el2 span:first-child{
+    font-weight: 100;
+    margin-bottom: 5px;
+}
+
+.ch{
+    font-weight: 200;
+  font-size: 14px;
+  color: var(--main);
+  cursor: pointer;
+}

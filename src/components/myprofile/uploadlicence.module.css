@@ -1,0 +1,110 @@
+.uploadLicence{
+    width: 48%;
+    height: 150px;
+    /* background: red; */
+    border-radius: 5px;
+    border: 1px solid #eee;
+    position: relative;
+}
+
+.befo > input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.progres{
+    height: 10px;
+    width: 100%;
+    background: #eee;
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progres >span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: var(--main);
+}
+
+
+.befo{
+    /* padding: 15px; */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.befo *{
+    width: 100%;
+    /* color: #ccc; */
+}
+
+.befo > svg{
+    color: #ccc!important;
+}
+
+.spnOut{
+    color: #ccc!important;
+}
+
+.befo:hover *{
+    color: #333!important;
+}
+
+.befo > svg{
+    font-size: 40px;
+}
+
+.showImgLicense{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.showImgLicense .contImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: 100% 100%!important;
+}
+
+.footerVi{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.footerVi > span{
+    width: 40px;
+    height: 40px;
+    background: var(--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.footerVi > span svg{
+    color: #fff!important;
+}

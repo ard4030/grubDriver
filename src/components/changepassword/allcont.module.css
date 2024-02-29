@@ -1,0 +1,11 @@
+.myContent{
+    padding: 35px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.passCont{
+    background: #fff;
+    padding: 16px;
+    border-radius: 7px;
+}

@@ -1,7 +1,18 @@
-import { Inter } from "next/font/google";
+
+import { poppins } from "@/utils/fonts";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// React Phone Input Styles
+import 'react-phone-number-input/style.css'
+
+// leaflet Map
+import 'leaflet/dist/leaflet.css'
+
+// Toast Container
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthWrapper } from "@/context/AuthContext";
+import LoadingFull from "@/components/global/LoadingFull/LoadingFull";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +22,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={poppins.className}>
+        <AuthWrapper>
+          <LoadingFull />
+          <ToastContainer />
+          {children}
+        </AuthWrapper>
+      </body>
     </html>
   );
 }

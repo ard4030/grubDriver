@@ -1,0 +1,28 @@
+.homeComp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s all;
+    box-sizing: border-box;
+}
+
+.rightImage{
+    width: 70%;
+    background: url(../../../public/Images/loginbak.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+    transition: 0.5s all;
+}
+
+.content{
+    width: 30%;
+    background: #fff;
+    min-height: 100vh;
+    transition: 0.5s all;
+    padding: 35px 70px;
+    box-sizing: border-box;
+}
+
+.active .rightImage{width: 50%!important;}
+.active .content{width: 50%!important;}
+

@@ -1,0 +1,37 @@
+.mapModal{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #00000012;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapModalContent{
+    width: 66%;
+    height: 80vh;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.cls{
+    position: absolute;
+    top: 11px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    z-index: 99999;
+    font-size: 43px;
+    cursor: pointer;
+}

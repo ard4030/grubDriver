@@ -1,0 +1,62 @@
+.myContent{
+    padding: 35px;
+    margin: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.rqw{
+    position: absolute;
+    left: 35px;
+    top: 38px;
+    padding: 9px 10px;
+    background: #0a99ff;
+    font-family: inherit;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.el1{
+  outline: 2px solid var(--main);
+  border-radius: 5px;
+  padding: 14px 10px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+  padding-top: 14px;
+  padding-top: 14px;
+  position: relative;
+  padding-top: 35px;
+  background: #f8f8f8;
+  padding-bottom: 0px;
+  padding-left: 23px;
+  margin-bottom: 20px;
+}
+
+.el2{
+  position: absolute;
+  top: 7px;
+  color: #aeaeae;
+  font-size: 18px;
+}
+
+.el1 input{
+  margin-left: 10px;
+  width: 78%;
+  padding: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 28px;
+  color: black;
+  background: #f8f8f8;
+}
+
+.el1 input:focus-visible{
+  outline: none;
+}
+
+.el3 {
+  font-size: 28px;
+}
