@@ -186,7 +186,7 @@ const AllCont = () => {
             >
               {
                 bAccounts.map((item,index) => 
-                <MenuItem value={item.acc_id}>
+                <MenuItem key={index} value={item.acc_id}>
                   <span>{item.account_name}</span>
                   <span>&nbsp;{` (${item.bank_account_number})`}</span>
                 </MenuItem>
