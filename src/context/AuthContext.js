@@ -10,15 +10,13 @@ export const AuthWrapper = ({children}) => {
     const [user, setUser] = useState(false);
     const router = useRouter();
 
-    console.log(user)
-
     const isLogin = async () => {
         setLoading(true)
         const res = await fetchData('/validateDriver','POST',{});
         if(res.success){
             if(res.data.code === 1){
                 setUser(res.data.details)
-                router.replace('/home/dashboard')
+                // router.replace('/home/dashboard')
             }else{
                 setUser(null)
                 router.replace('/')

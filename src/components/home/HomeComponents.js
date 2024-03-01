@@ -1,11 +1,19 @@
 "use client"
-import { useState } from 'react'
+import { AuthContext } from '@/context/AuthContext'
+import { useRouter } from 'next/navigation'
+import { useContext, useState } from 'react'
 import styles from './homecomponents.module.css'
 import Login from './Login'
 import Register from './Register'
 
 const HomeComponents = () => {
   const [status, setStatus] = useState(true);
+  const {user,loading} = useContext(AuthContext);
+  const router = useRouter();
+  if(user && !loading){
+    router.push('/home/dashboard')
+  }
+
   return (
     <div className={`${styles.homeComp} ${!status && styles.active}`}>
       <div className={`${styles.content}`}>

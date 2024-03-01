@@ -16,9 +16,14 @@ import { Chip } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
 
 const SidebarPanel = () => {
-  const {user} = useContext(AuthContext);
+  const {user,loading} = useContext(AuthContext);
   const pathName = usePathname();
   const router = useRouter();
+
+  if(!user && !loading){
+    router.push('/')
+  }
+
 
   return (
     <div className={styles.sideBar}>
