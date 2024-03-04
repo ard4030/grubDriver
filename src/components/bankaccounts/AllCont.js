@@ -1,7 +1,6 @@
 import { Button, FormControl, InputLabel, MenuItem, Select, Switch, TextField } from '@mui/material'
 import styles from './allcount.module.css'
 import { FaPlus } from "react-icons/fa";
-import Head from '../myprofile/Head';
 import { useEffect, useState } from 'react';
 import { fetchData, listcountry } from '@/utils/functions';
 import { CiEdit } from "react-icons/ci";
@@ -11,6 +10,7 @@ import { FiEdit } from "react-icons/fi";
 import MyModal from '../global/MyModal/MyModal';
 import { toast } from 'react-toastify';
 import { Popconfirm } from 'antd';
+import Head from '../global/HeadComp/Head';
 
 const AllCont = () => {
     const [data, setData] = useState([]);
@@ -182,7 +182,7 @@ const AllCont = () => {
 
         <MyModal 
          open={open}
-         loadingBtnText={"Create"}
+         loadingBtnText={`${account.acc_id > 0 ? "Edit" :"Create"}`}
          loadingBtnLoading={loading}
          loadingBtn={true}
          loadingBtnClick={() => SaveData()}
@@ -249,10 +249,6 @@ const AllCont = () => {
             value={account.bank_country}
             onChange={handleChange}
             name="bank_country"
-            // value={age}
-            
-            label="Bank Branch Country"
-            // onChange={handleChange}
         >
             {
                 Object.values(countrys).map((item,index) => 

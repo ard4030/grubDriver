@@ -17,7 +17,9 @@ export const ProfileWrapper = ({children}) => {
         licence_plate:"",
         color:"",
         documents:{},
-        transport_description:""
+        transport_description:"",
+        profile_photo:"",
+        status:""
     })
     const [error,setError] = useState({});
     const [loading,setLoading] = useState(true);
@@ -36,8 +38,10 @@ export const ProfileWrapper = ({children}) => {
                     email:res.data.details.data.email,
                     licence_plate:res.data.details.data.licence_plate,
                     color:res.data.details.data.color,
-                    documents:res.data.details.data.documents,
-                    transport_description:res.data.details.data.transport_description
+                    documents:JSON.parse(res.data.details.data.documents),
+                    transport_description:res.data.details.data.transport_description,
+                    profile_photo:res.data.details.data.profile_photo,
+                    status:res.data.details.data.status
                 })
             }else{
                

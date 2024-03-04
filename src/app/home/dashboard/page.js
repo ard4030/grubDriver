@@ -1,8 +1,9 @@
+import AllCont from '@/components/dashboard/AllCont'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>Dashboard</div>
+    <AllCont />
   )
 }
 

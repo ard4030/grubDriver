@@ -129,6 +129,16 @@ div.phoneInpute{
     color: green;
 }
 
+.PRE-ASSIGN{
+    background: #e0eff7;
+    color: #276e94;
+}
+
+.PICKUP{
+    background: #f7f0e0;
+    color: #8f6a14;
+}
+
 .stc1{
     font-size: 20px;
     display: flex;

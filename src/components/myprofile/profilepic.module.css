@@ -1,0 +1,94 @@
+.nameProf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px
+}
+
+.nameProf > h3{
+    margin: 0;
+}
+
+.nameProf span{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url(../../../public/Images/check.png) no-repeat center;
+  background-size: 100% 100%;
+  margin-left: 6px;
+}
+
+.profPic{
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.av{
+    position: relative;
+}
+
+.badge{
+    position: absolute;
+    top: 81%;
+    left: 61%;
+    background: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.contImage{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 100px;
+}
+
+.uploadInput{
+    position: absolute;
+    top: 81%;
+    left: 61%;
+    background: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.dtStat span{
+    margin: auto;
+    margin-top: auto;
+    display: block;
+    width: max-content;
+    margin-top: 22px;
+    font-weight: 200;
+    background: #e5ffe5;
+    color: green;
+    padding: 5px 10px;
+    border-radius: 34px;
+    font-size: 14px;
+}
+
+.ec1{
+    margin: 0;
+    margin-top: 0px;
+  font-weight: 200;
+  font-size: 14px;
+  color: #918f8f;
+  text-align: center;
+  margin-top: 6px;
+}

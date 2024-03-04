@@ -298,3 +298,14 @@ export function listcountry() {
     ];
     return Object.assign(...countries.map(function(k, i){ return { [k.code]: countries[i].name };}));
 }
+
+export const getNowDate = () => {
+    var currentDate = new Date();
+    let year = currentDate.getFullYear();
+    let month = (currentDate.getMonth() + 1);
+    let day = currentDate.getDate();
+    let hourse = currentDate.getHours();
+    let min = currentDate.getMinutes();
+    let finall = `${year}-${month<10?0:""}${month}-${day<10?0:""}${day} ${hourse<10?0:""}${hourse}:${min<10?0:""}${min}`
+    return finall
+}

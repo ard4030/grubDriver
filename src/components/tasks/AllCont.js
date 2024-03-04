@@ -1,12 +1,12 @@
 "use client"
 import TableView from '../global/MyTable/MyTable'
-import Head from '../myprofile/Head'
 import styles from './allcont.module.css'
 import { IoEyeOutline } from "react-icons/io5";
 import { Box, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
 import MyModal from '../global/MyModal/MyModal';
 import ViewDetails from './ViewDetails';
+import Head from '../global/HeadComp/Head';
 
 const AllCont = ({fromdt,todt}) => {
 

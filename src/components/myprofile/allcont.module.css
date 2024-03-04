@@ -24,13 +24,6 @@
     padding: 20px;
 }
 
-.profPic{
-    width: 100%;
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-}
 
 .item {
     width: 45%;
@@ -44,7 +37,6 @@
 
 .contLicence{
     width: 100%;
-    margin-top: 40px;
 }
 
 .licenceImage{
@@ -79,31 +71,14 @@
 
 .left{
     width: 70%;
+    background: #fff;
+    border-radius: 10px;
 }
 
 .right{
     width: 27%;
 }
 
-.nameProf{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px
-}
-
-.nameProf > h3{
-    margin: 0;
-}
-
-.nameProf span{
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  background: url(../../../public/Images/check.png) no-repeat center;
-  background-size: 100% 100%;
-  margin-left: 6px;
-}
 
 .footerBotton{
     margin-top: 15px;

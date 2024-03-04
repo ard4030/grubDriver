@@ -3,7 +3,7 @@ import { LoadingButton } from '@mui/lab'
 import { TextField } from '@mui/material'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import Head from '../myprofile/Head'
+import Head from '../global/HeadComp/Head'
 import styles from './allcont.module.css'
 
 const AllCont = () => {

@@ -1,6 +1,5 @@
 "use client"
 import TableView from '../global/MyTable/MyTable'
-import Head from '../myprofile/Head'
 import styles from './allcont.module.css'
 import { IoEyeOutline } from "react-icons/io5";
 import { Box, FormControl, InputLabel, MenuItem, Modal, Select, TextField, Typography } from '@mui/material';
@@ -12,6 +11,7 @@ import { fetchData } from '@/utils/functions';
 import { LoadingButton } from '@mui/lab';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import Head from '../global/HeadComp/Head';
 
 const AllCont = () => {
 

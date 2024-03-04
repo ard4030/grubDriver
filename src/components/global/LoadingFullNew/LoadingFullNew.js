@@ -4,9 +4,11 @@ import { CircularProgress } from '@mui/material'
 import { useContext } from 'react'
 import styles from './loadingfull.module.css'
 
-const LoadingFullNew = () => {
+const LoadingFullNew = ({styles={}}) => {
   return (
-    <div className={styles.loading}>
+    <div 
+    style={styles}
+    className={styles.loading}>
         <CircularProgress size={70} />
     </div>
   )

@@ -10,7 +10,7 @@ import { RiMoneyEuroCircleFill } from "react-icons/ri";
 import { BsBank2 } from "react-icons/bs";
 import { MdPassword } from "react-icons/md";
 import { LiaAffiliatetheme } from "react-icons/lia";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import { Chip } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
@@ -20,9 +20,14 @@ const SidebarPanel = () => {
   const pathName = usePathname();
   const router = useRouter();
 
-  if(!user && !loading){
-    router.push('/')
-  }
+  useEffect(() => {
+    // suspended
+    console.log("---",user?.data?.status)
+    if(!user && !loading){
+      router.push('/')
+    }
+  }, [user])
+  
 
 
   return (

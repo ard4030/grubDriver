@@ -33,7 +33,6 @@ const UploadLicence = () => {
     formData.set('token',localStorage.getItem("driverToken"))
     formData.append("api_key",process.env.NEXT_PUBLIC_API_KEY)
 
-
     await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/drivers/api/uploadDocument`, formData, {
         onUploadProgress: (progressEvent) => {
           // console.log('progressEvent', progressEvent)
@@ -60,8 +59,6 @@ const UploadLicence = () => {
           }
 
         }
-
-
       }).catch(err => {
         alert(err.message)
       });

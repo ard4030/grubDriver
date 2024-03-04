@@ -1,0 +1,245 @@
+.myContent{
+    padding: 35px;
+    margin: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.contWel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome{
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.welcome h3{
+    font-weight: 200;
+    font-size: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.welcome p{
+    font-weight: 200;
+    color: #b0b0b0;
+    margin-top: 0
+}
+
+.blns{
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    width: 20%;
+}
+
+.blns span:first-child{
+    font-weight: 200;
+    display: block;
+    color: #b0b0b0;
+}
+
+.blns span:nth-child(2){
+    font-size: 45px;
+}
+
+.el1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 200;
+    color: var(--main);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.el1 p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.statuses{
+    margin-top: 20px;
+    display: block;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statuses > div{
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.statuses > div::before{
+    content: "";
+    left: 0;
+    top: 0;
+    /* width: 10px;
+    height: 100%; */
+    position: absolute;
+
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.statuses > div.comp::before{
+    /* background: green; */
+    border-bottom: 10px solid green;
+}
+
+.statuses > div.comp.noaf::before{display: none;}
+
+
+.statuses > div.pend::before{
+    /* background: orange; */
+    border-bottom: 10px solid orange;
+
+}
+
+.statuses > div.canc::before{
+    /* background: red; */
+    border-bottom: 10px solid red;
+
+}
+
+.statuses > div.und::before{
+    /* background: #ccc; */
+    border-bottom: 10px solid #ccc;
+}
+
+.sv{
+    font-size: 20px;
+    color: #ccc;
+    display: none;
+}
+
+.el3{
+    font-weight: 200;
+    margin-bottom: 0;
+    font-size: 25px;
+    color: #6d6d6d;
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+}
+
+.charts{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.charts > div{
+    width: 45%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.el4{
+    font-weight: 200;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #6d6d6d;
+    width: 100%;
+    margin-top: 0;
+}
+
+.myTable{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rows{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 200;
+    font-size: 14px;
+    margin-top: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.myTable > div:last-child{
+    border-bottom: none;
+}
+
+.myTable > div span:nth-child(1){width: 10%;}
+.myTable > div span:nth-child(2){width: 20%;}
+.myTable > div span:nth-child(3){width: 30%;}
+.myTable > div span:nth-child(4){width: 18%;}
+
+.el7{
+    width: max-content;
+}
+
+.el7 > p{
+    margin-right: 10px;
+}
+
+.el8{
+    border-radius: 100px;
+    text-align: center;
+    padding: 5px 10px;
+    /* width: max-content!important; */
+}
+
+/* .comp{
+    background: rgb(6,118,27);
+    background: linear-gradient(180deg, rgba(6,118,27,0) 70%, rgba(9,128,32,0.9512137618719363) 100%);
+} */
+
+/* .pend{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 70%, rgba(148,104,25,0.9512137618719363) 100%);
+}
+
+.und{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 70%, rgba(110,107,101,0.9512137618719363) 100%);
+}
+
+.canc{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 70%, rgba(202,11,11,0.9512137618719363) 100%);
+} */
+
+.num{
+    display: block;
+    font-size: 40px;
+}
+
+.statuses > div h5{
+    margin: 0;
+    font-weight: 200;
+    color: #ccc;
+}
+
+.lk{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
