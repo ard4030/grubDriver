@@ -1,4 +1,5 @@
 "use client"
+import { AuthContext } from '@/context/AuthContext'
 import { ProfileContext } from '@/context/ProfileContext'
 import { Alert, LoadingButton } from '@mui/lab'
 import { useContext} from 'react'
@@ -14,6 +15,7 @@ import ProfilePic from './ProfilePic'
 const AllCont = () => {
     const {loading,saveData} = useContext(ProfileContext);
     const { t } = useTranslation();
+    const { user } = useContext(AuthContext)
     
   return (
     <div 
@@ -23,7 +25,9 @@ const AllCont = () => {
         <div className={styles.myContent}>
             <div className={styles.left}>
                 <AccountDetails />
+                { user && user.data.status !== "active" && 
                 <LicenseImagesComp />
+                }
             </div>
 
             <div className={styles.right}>
