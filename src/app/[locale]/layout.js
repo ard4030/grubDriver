@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthWrapper } from "@/context/AuthContext";
 import LoadingFull from "@/components/global/LoadingFull/LoadingFull";
+import { ViewWrapper } from "@/context/ViewContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -24,9 +25,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>
         <AuthWrapper>
-          <LoadingFull />
-          <ToastContainer />
-          {children}
+          <ViewWrapper>
+            <LoadingFull />
+            <ToastContainer />
+            {children}
+          </ViewWrapper>
         </AuthWrapper>
       </body>
     </html>

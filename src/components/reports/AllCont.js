@@ -1,6 +1,9 @@
+"use client"
+import { AuthContext } from '@/context/AuthContext'
 import { fetchData } from '@/utils/functions'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { IoEyeOutline } from 'react-icons/io5'
 import Head from '../global/HeadComp/Head'
 import TableView from '../global/MyTable/MyTable'
@@ -11,7 +14,8 @@ import ChartMe from './ChartMe'
 const AllCont = () => {
     const [tableData,setTableData] = useState("")
     const router = useRouter();
-    // console.log("****",tableData)
+    const { t } = useTranslation();
+    const { user } = useContext(AuthContext)
 
     const columns = [
         {
@@ -21,31 +25,31 @@ const AllCont = () => {
             render: (_, record) => <span>{record.key}</span>,
         },
         {
-            title: 'From Date',
+            title: t("From Date"),
             dataIndex: 'fromdt',
             key: 'fromdt',
             render: (_, record) => <span>{record.fromdt}</span>,
         },
         {
-            title: 'To Date',
+            title: t("To Date"),
             dataIndex: 'todt',
             key: 'todt',
             render: (_, record) => <span>{record.todt}</span>,
         },
         {
-            title: 'Total',
+            title: t("Total"),
             dataIndex: 'total',
             key: 'total',
             render: (_, record) => <span>{record.total}</span>,
         },
         {
-            title: 'Distance',
+            title: t("Distance"),
             dataIndex: 'distance',
             key: 'distance',
             render: (_, record) => <span>{record.distance}</span>,
         },
         {
-            title: 'Sum',
+            title: t("Sum"),
             dataIndex: 'sum',
             key: 'sum',
             render: (_, record) => <span>{record.sum}</span>,
@@ -55,7 +59,7 @@ const AllCont = () => {
             dataIndex: 'status',
             key: 'status',
             render: (_, record) => <div className='stc1'>
-                {console.log(record.fromdt)}
+                
               <span onClick={() => router.push(`/home/tasks?fromdt=${record.fromdt}&todt=${record.todt}`)}><IoEyeOutline /></span>
             </div>,
           },
@@ -66,7 +70,14 @@ const AllCont = () => {
     
   return (
     <div>
-        <Head title={"Report Earning"} />
+        <Head title={t("Report Earning")} />
+        {
+          user && user.data.status !== "active" ?
+          <div className='noAct'>
+            <h1>Your Account need to Active!</h1>
+            <button>Go To Profile</button>
+          </div>
+      :
         <div className={styles.myContent}>
             <div className={styles.topDetails}>
                 <BalanceDetails />
@@ -80,6 +91,8 @@ const AllCont = () => {
             api={"/getStaticWeeks"}
             />
         </div>
+      
+      }
     </div>
   )
 }

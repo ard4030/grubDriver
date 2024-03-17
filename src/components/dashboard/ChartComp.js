@@ -13,7 +13,7 @@ const ChartComp = ({data}) => {
         // تبدیل تاریخ به تایم‌استمپ
         const timestamp = new Date(year, month - 1, day, hour, minute).getTime();
         return timestamp
-        // console.log(timestamp); // خروجی: 1679816280000
+        
     }
     let a;
     let b =[];

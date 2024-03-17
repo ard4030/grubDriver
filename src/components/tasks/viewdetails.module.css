@@ -131,3 +131,7 @@ span.dst{
   color: var(--main);
   cursor: pointer;
 }
+
+@media (max-width:767px) {
+    .elk{width: 100%!important;}
+}

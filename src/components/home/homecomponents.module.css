@@ -4,6 +4,7 @@
     align-items: center;
     transition: 0.5s all;
     box-sizing: border-box;
+    position: relative;
 }
 
 .rightImage{
@@ -21,8 +22,18 @@
     transition: 0.5s all;
     padding: 35px 70px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .active .rightImage{width: 50%!important;}
 .active .content{width: 50%!important;}
+
+
+@media(max-width:767px){
+    .homeComp{flex-wrap: wrap;}
+    .content{width: 100%;}
+    .rightImage{width: 100%;display: none;}
+    .active .rightImage{width: 100%!important;display: none;}
+    .active .content{width: 100%!important;}
+}
 

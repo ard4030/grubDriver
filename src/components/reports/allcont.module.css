@@ -44,3 +44,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width:767px) {
+  .topDetails{flex-wrap: wrap;}
+  .topDetails > div{width: 100%!important;margin-bottom: 15px;}
+  .myContent{padding: 15px!important;}
+}

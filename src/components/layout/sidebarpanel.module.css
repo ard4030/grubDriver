@@ -1,5 +1,6 @@
 .sideBar{
     padding: 20px;
+    position: relative;
 }
 
 .contImage{
@@ -108,4 +109,10 @@
     background: url(../../../public/Images/grubpng.png) no-repeat center;
     background-size: 100% 100%;
     margin-right: 12px;
+}
+
+
+
+@media (max-width:767px) {
+    .active::before{left: -14px!important;}
 }

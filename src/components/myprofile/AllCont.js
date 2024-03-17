@@ -1,7 +1,8 @@
 "use client"
 import { ProfileContext } from '@/context/ProfileContext'
-import { LoadingButton } from '@mui/lab'
+import { Alert, LoadingButton } from '@mui/lab'
 import { useContext} from 'react'
+import { useTranslation } from 'react-i18next'
 import Head from '../global/HeadComp/Head'
 import LoadingFullNew from '../global/LoadingFullNew/LoadingFullNew'
 import AccountDetails from './AccountDetails'
@@ -12,14 +13,14 @@ import ProfilePic from './ProfilePic'
 
 const AllCont = () => {
     const {loading,saveData} = useContext(ProfileContext);
+    const { t } = useTranslation();
+    
   return (
     <div 
-    onClick={() => console.log(loading)}
     className={styles.allCont}>
-        <Head title={"Account"} />
+        <Head title={t("Account")} />
         {loading && <LoadingFullNew />}
         <div className={styles.myContent}>
-
             <div className={styles.left}>
                 <AccountDetails />
                 <LicenseImagesComp />

@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { ProfileContext } from '@/context/ProfileContext';
 import Loading from '../global/Loading/LoadingFull';
+import { AuthContext } from '@/context/AuthContext';
 
 const ProfilePic = () => {
     let pic = true;
@@ -16,7 +17,8 @@ const ProfilePic = () => {
     const [loading, setloading] = useState(null);
     const [prog, setProg] = useState(0);
     const {details,setDetails} = useContext(ProfileContext);
-    console.log(details);
+    const {user} = useContext(AuthContext)
+   
 
     const handleUpload = (e) => {
         setFile(e.target.files?.[0]);
@@ -34,7 +36,7 @@ const ProfilePic = () => {
     
         await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/drivers/api/uploadDocument`, formData, {
             onUploadProgress: (progressEvent) => {
-              // console.log('progressEvent', progressEvent)
+              
               if (progressEvent.bytes) {
                 setProg(Math.round((progressEvent.loaded / progressEvent.total)*100))
               }
@@ -44,7 +46,7 @@ const ProfilePic = () => {
               if(response.data.code === 1){
                 setProg(0)
                 setFile(null)
-                console.log(response.data)
+            
                 setDetails({...details,buget_photo:response.data.details.bucket,profile_photo:response.data.details.filename})
                 // setImage(response.data.details.url)
                 // setDetails({...details,documents:
@@ -83,7 +85,12 @@ const ProfilePic = () => {
         :
         pic?
         <div className={styles.contImage}>
+            {
+            user?.data?.photourl ?
+            <Image style={{borderRadius:"100px"}} fill src={user?.data?.photourl} alt="Profile Picture" />
+            :
             <Image fill src={testProf} alt="Profile Picture" /> 
+            }
             <span className={styles.badge}><AiOutlineEdit/></span>
             <input 
             onChange={handleUpload}
@@ -103,7 +110,7 @@ const ProfilePic = () => {
       </>
 
       <div className={styles.dtStat}>
-        <span>{details.status}</span>
+        <span className={`${details.status.toUpperCase()}`}>{details.status}</span>
       </div>
         
         <div className={styles.nameProf}>

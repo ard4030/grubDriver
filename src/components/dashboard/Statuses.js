@@ -8,12 +8,14 @@ import { fetchData, getNowDate } from '@/utils/functions';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Skeleton } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const Statuses = ({data,loading}) => {
+  const { t } = useTranslation();
 
   return (
     <div className={styles.statuses}>
-        <h4 className={styles.el3}>Your Tasks Status</h4>
+        <h4 className={styles.el3}>{t("Your Tasks Status")}</h4>
 
         {
           loading ?
@@ -41,25 +43,25 @@ const Statuses = ({data,loading}) => {
             <div className={styles.comp}>
               <span className={styles.sv}><FaCheck /></span>
               <span className={styles.num}>{(data && data.complete)?data.complete:0}</span>
-              <h5>Complete</h5>
+              <h5>{t("Complete")}</h5>
             </div>
 
             <div className={styles.pend}>
               <span className={styles.sv}><WiTime9 /></span>
               <span className={styles.num}>{(data && data.pending)?data.pending:0}</span>
-              <h5>Pending</h5>
+              <h5>{t("Pending")}</h5>
             </div>
 
             <div className={styles.canc}>
               <span className={styles.sv}><IoMdClose /></span>
               <span className={styles.num}>{(data && data.canceled)?data.canceled:0}</span>
-              <h5>Canceled</h5>
+              <h5>{t("Canceled")}</h5>
             </div>
 
             <div className={styles.und}>
               <span className={styles.sv}><MdOutlineDoNotDisturb /></span>
               <span className={styles.num}>{(data && data.all)?data.all:0}</span>
-              <h5>All</h5>
+              <h5>{t("All")}</h5>
             </div>    
           </>
         }

@@ -1,12 +1,15 @@
+"use client"
 import { fetchData } from '@/utils/functions'
 import { LoadingButton } from '@mui/lab'
 import { TextField } from '@mui/material'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
 import Head from '../global/HeadComp/Head'
 import styles from './allcont.module.css'
 
 const AllCont = () => {
+    const { t } = useTranslation();
     const [first, setfirst] = useState({
         old_pass:"",
         new_pass:"",
@@ -36,13 +39,12 @@ const AllCont = () => {
         }else{
 
         }
-        console.log(res)
         setLoading(false)
     }
 
   return (
     <div className={styles.allCont}>
-        <Head title={"Change Password"} />
+        <Head title={t("Change Password")} />
         <div className={styles.myContent}>
             <div className={styles.passCont}>
                 <div className={styles.item}>
@@ -52,7 +54,7 @@ const AllCont = () => {
                     onChange={handleChange}
                     name="old_pass"
                     id="outlined-basic" 
-                    label="Old Password" 
+                    label={t("Old Password")} 
                     variant="outlined" />
                 </div>
 
@@ -63,7 +65,7 @@ const AllCont = () => {
                     onChange={handleChange}
                     name="new_pass"
                     id="outlined-basic" 
-                    label="New Password" 
+                    label={t("New Password")} 
                     variant="outlined" />
                 </div>
 
@@ -74,7 +76,7 @@ const AllCont = () => {
                     onChange={handleChange}
                     name="confirm_pass"
                     id="outlined-basic" 
-                    label="Confirm Password" 
+                    label={t("Confirm Password")} 
                     variant="outlined" />
                 </div>
 
@@ -83,7 +85,7 @@ const AllCont = () => {
                 loading={loading}
                 variant="contained"
                 >
-                    Save
+                    {t("Save")}
                 </LoadingButton>
 
 

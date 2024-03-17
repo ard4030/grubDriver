@@ -1,5 +1,5 @@
 
-// "/driver/api/validateDriver"
+
 export const fetchData = async (api,method,data,myFormData) => {
     let res;
     let token = localStorage.getItem("driverToken")
@@ -309,3 +309,4 @@ export const getNowDate = () => {
     let finall = `${year}-${month<10?0:""}${month}-${day<10?0:""}${day} ${hourse<10?0:""}${hourse}:${min<10?0:""}${min}`
     return finall
 }
+

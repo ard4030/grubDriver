@@ -108,3 +108,7 @@
 .footerVi > span svg{
     color: #fff!important;
 }
+
+@media (max-width:767px) {
+    .uploadLicence{width: 100%!important;margin-bottom: 15px!important;}
+}

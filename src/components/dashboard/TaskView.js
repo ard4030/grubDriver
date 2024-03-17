@@ -2,13 +2,15 @@ import styles from './allcont.module.css'
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import LoadingFullNew from '../global/LoadingFullNew/LoadingFullNew';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const TaskView = ({tasks=[],loading}) => {
+  const { t } = useTranslation();
   
   return (
     <div className={`${tasks.length < 1 && styles.lk}`}>
                 <h4 
-                className={styles.el4}>Your Tasks Status</h4>
+                className={styles.el4}>{t("Your Tasks Status")}</h4>
 
                 {
                   loading?
@@ -33,7 +35,7 @@ const TaskView = ({tasks=[],loading}) => {
                           <span>{index+1}</span>
                           <span>{item.task_id}</span>
                           <span>{item.delivery_date.substr(0,10)}</span>
-                          <span className={`${styles.el8} ${item.status.toUpperCase()}`}>{item.status}</span>
+                          <span className={`${styles.el8} ${item.status.toUpperCase()}`}>{t("stat",{status : item.status})}</span>
                         </div>
                       }
                     })
@@ -45,7 +47,7 @@ const TaskView = ({tasks=[],loading}) => {
 
                 {tasks.length > 0 && 
                 <Link href={'/home/reports'} className={`${styles.el1} ${styles.el7}`}>
-                <p>Show All Tasks</p>
+                <p>{t("Show All Tasks")}</p>
                 <MdOutlineArrowForwardIos />
               </Link>}
               </div>

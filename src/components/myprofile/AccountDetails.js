@@ -4,16 +4,23 @@ import { useContext, useState } from 'react'
 import { ProfileContext } from '@/context/ProfileContext'
 import PhoneInput from 'react-phone-number-input'
 import { LoadingButton } from '@mui/lab'
-
+import { useTranslation } from 'react-i18next'
 
 const AccountDetails = () => {
     const {details, setDetails,loading,error,saveData} = useContext(ProfileContext);
-
+    const { t } = useTranslation();
   return (
     <div className={styles.contItems}>
         <div className={styles.items}>
+            {
+                details.status === "suspended" && 
+                <div className={styles.alrt}>
+                    <Alert severity="error">{t("Your account information is not complete! Please update your information")}</Alert>
+                </div>
+            }
+        
             <div className={styles.hl1}>
-                <h3>Account</h3>
+                <h3>{t("Account")}</h3>
             </div>
 
             <div className={styles.item}>
@@ -21,7 +28,7 @@ const AccountDetails = () => {
                 error={error.first_name?true:false}
                 id={`${error.first_name?"outlined-error-helper-text":"outlined-basic"}`}
                 helperText={error.first_name && error.first_name}
-                label="FirstName" 
+                label={t("First Name")} 
                 size='small'
                 fullWidth
                 value={details.first_name}
@@ -34,7 +41,7 @@ const AccountDetails = () => {
                 error={error.last_name?true:false}
                 id={`${error.last_name?"outlined-error-helper-text":"outlined-basic"}`}
                 helperText={error.last_name && error.last_name}
-                label="Last Name" 
+                label={t("Last Name")} 
                 size='small'
                 fullWidth
                 value={details.last_name}
@@ -47,7 +54,7 @@ const AccountDetails = () => {
                 error={error.username?true:false}
                 id={`${error.username?"outlined-error-helper-text":"outlined-basic"}`}
                 helperText={error.username && error.username}
-                label="User Name" 
+                label={t("User Name")} 
                 size='small'
                 fullWidth
                 value={details.username}
@@ -60,7 +67,7 @@ const AccountDetails = () => {
                 error={error.email?true:false}
                 id={`${error.email?"outlined-error-helper-text":"outlined-basic"}`}
                 helperText={error.email && error.email}
-                label="Email" 
+                label={t("Email")} 
                 size='small'
                 fullWidth
                 value={details.email}
@@ -72,7 +79,7 @@ const AccountDetails = () => {
                 <PhoneInput
                 defaultCountry="GB"
                 className={`phoneInpute ${error.phone && "errMes"}`}
-                placeholder="Enter phone number"
+                placeholder={t("Enter phone number")}
                 value={details.phone}
                 onChange={(e)=>setDetails({...details,phone:e})}/>
                 {error.phone && <span className={styles.errMessage}>{error.phone}</span> }
@@ -85,12 +92,12 @@ const AccountDetails = () => {
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={details.transport_type_id}
-                        label="Transport Type"
+                        label={t("Transport Type")}
                         size='small'
                         onChange={(e) => setDetails({...details,transport_type_id:e.target.value})}
                     >
-                        <MenuItem value={"car"}>Car</MenuItem>
-                        <MenuItem value={"motor"}>Motor</MenuItem>
+                        <MenuItem value={"car"}>{t("Car")}</MenuItem>
+                        <MenuItem value={"motor"}>{t("Motor")}</MenuItem>
                     </Select>
                 </FormControl>
             </div>
@@ -100,7 +107,7 @@ const AccountDetails = () => {
                 error={error.licence_plate?true:false}
                 id={`${error.licence_plate?"outlined-error-helper-text":"outlined-basic"}`}
                 helperText={error.licence_plate && error.licence_plate}
-                label="Licence Plate" 
+                label={t("Licence Plate")} 
                 size='small'
                 fullWidth
                 value={details.licence_plate}
@@ -113,7 +120,7 @@ const AccountDetails = () => {
                 error={error.color?true:false}
                 id={`${error.color?"outlined-error-helper-text":"outlined-basic"}`}
                 helperText={error.color && error.color}
-                label="Color" 
+                label={t("Color")} 
                 size='small'
                 fullWidth
                 value={details.color}

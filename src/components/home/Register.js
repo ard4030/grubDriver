@@ -1,13 +1,19 @@
 import styles from './register.module.css'
 import PhoneInput from 'react-phone-number-input'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Button, FormControl, InputLabel, MenuItem, Select, TextareaAutosize, TextField } from '@mui/material'
 import { registerValidation } from '@/validation/registervalidation'
 import UploadLicence from '../myprofile/UploadLicence'
 import { LoadingButton } from '@mui/lab'
 import { fetchData } from '@/utils/functions'
+import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
+import { AuthContext } from '@/context/AuthContext'
 
 const Register = ({chengeStat}) => {
+  const { t } = useTranslation();
+  const {loginUser} = useContext(AuthContext)
+
   const [details, setDetails] = useState({
     phone:"",
     transport_type_id:"car",
@@ -18,19 +24,26 @@ const Register = ({chengeStat}) => {
     password:"",
     repassword:"",
     licence_plate:"",
-    color:""
+    color:"",
+    transport_description:""
   })
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
-  console.log(details)
+
 
   const registerUser = async () => {
     setLoading(true)
-    const res = await fetchData('/test','POST');
+    let x = details;
+    const res = await fetchData('/registerDriver','POST',x);
     if(res.success){
-
+      if(res.data.code === 1){
+        console.log(res.data)
+        await loginUser({uname:details.username,pass:details.password})
+      }else{
+        toast.error(res.data.msg)
+      }
     }else{
-      alert(res.error)
+      alert(t(res.error))
     }
     setLoading(false)
   }
@@ -44,12 +57,12 @@ const Register = ({chengeStat}) => {
         <form className={styles.register}>
             <div className={styles.title}>
                 <div>
-                  <h2>Registration</h2>
-                  <p>Please fill form to register</p>
+                  <h2>{t("Registration")}</h2>
+                  <p>{t("Please fill form to register")}</p>
                 </div>
                 <span 
                 onClick={chengeStat}
-                className={styles.goLogin}>Login</span>
+                className={styles.goLogin}>{t("Login")}</span>
             </div>
 
             <div className={styles.item}>
@@ -57,7 +70,7 @@ const Register = ({chengeStat}) => {
               error={error.first_name?true:false}
               id={`${error.first_name?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.first_name && error.first_name}
-              label="FirstName" 
+              label={t("First Name")} 
               size='small'
               fullWidth
               value={details.first_name}
@@ -71,7 +84,7 @@ const Register = ({chengeStat}) => {
               error={error.last_name?true:false}
               id={`${error.last_name?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.last_name && error.last_name}
-              label="Last Name" 
+              label={t("Last Name")} 
               size='small'
               fullWidth
               value={details.last_name}
@@ -84,7 +97,7 @@ const Register = ({chengeStat}) => {
               error={error.username?true:false}
               id={`${error.username?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.username && error.username}
-              label="User Name" 
+              label={t("User Name")} 
               size='small'
               fullWidth
               value={details.username}
@@ -97,7 +110,7 @@ const Register = ({chengeStat}) => {
               error={error.email?true:false}
               id={`${error.email?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.email && error.email}
-              label="Email" 
+              label={t("Email")} 
               size='small'
               fullWidth
               value={details.email}
@@ -110,7 +123,7 @@ const Register = ({chengeStat}) => {
               error={error.password?true:false}
               id={`${error.password?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.password && error.password}
-              label="Password" 
+              label={t("Password")}
               size='small'
               type={"password"}
               fullWidth
@@ -124,7 +137,7 @@ const Register = ({chengeStat}) => {
               error={error.repassword?true:false}
               id={`${error.repassword?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.repassword && error.repassword}
-              label="Re Password" 
+              label={t("Re Password")} 
               size='small'
               type={"password"}
               fullWidth
@@ -137,7 +150,7 @@ const Register = ({chengeStat}) => {
               <PhoneInput
               defaultCountry="GB"
               className={`phoneInpute ${error.phone && "errMes"}`}
-              placeholder="Enter phone number"
+              placeholder={t("Enter phone number")}
               value={details.phone}
               onChange={(e)=>setDetails({...details,phone:e})}/>
               {error.phone && <span className={styles.errMessage}>{error.phone}</span> }
@@ -150,12 +163,12 @@ const Register = ({chengeStat}) => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={details.transport_type_id}
-                label="Transport Type"
+                label={t("Transport Type")}
                 size='small'
                 onChange={(e) => setDetails({...details,transport_type_id:e.target.value})}
               >
-                <MenuItem value={"car"}>Car</MenuItem>
-                <MenuItem value={"motor"}>Motor</MenuItem>
+                <MenuItem value={"car"}>{t("Car")}</MenuItem>
+                <MenuItem value={"motor"}>{t("Motor")}</MenuItem>
               </Select>
             </FormControl>
             </div>
@@ -165,7 +178,7 @@ const Register = ({chengeStat}) => {
               error={error.licence_plate?true:false}
               id={`${error.licence_plate?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.licence_plate && error.licence_plate}
-              label="Licence Plate" 
+              label={t("Licence Plate")} 
               size='small'
               fullWidth
               value={details.licence_plate}
@@ -178,7 +191,7 @@ const Register = ({chengeStat}) => {
               error={error.color?true:false}
               id={`${error.color?"outlined-error-helper-text":"outlined-basic"}`}
               helperText={error.color && error.color}
-              label="Color" 
+              label={t("Color")} 
               size='small'
               fullWidth
               value={details.color}
@@ -191,11 +204,11 @@ const Register = ({chengeStat}) => {
               onClick={registerUser}
               loading={loading} 
               variant="contained">
-                <span>Register</span>
+                <span>{t("Register")}</span>
               </LoadingButton>
               <Button 
               onClick={chengeStat}
-              variant="outlined">Login</Button>
+              variant="outlined">{t("Login")}</Button>
              
 
             </div>

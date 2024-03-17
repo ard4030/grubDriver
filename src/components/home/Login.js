@@ -6,6 +6,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, TextareaAutosize, Te
 import { fetchData } from '@/utils/functions'
 import { toast } from 'react-toastify'
 import { AuthContext } from '@/context/AuthContext'
+import { useTranslation } from 'react-i18next'
 
 const Login = ({chengeStat}) => {
   const [details, setDetails] = useState({
@@ -14,6 +15,7 @@ const Login = ({chengeStat}) => {
   })
   const [loading,setLoading] = useState(false);
   const {loginUser,user} = useContext(AuthContext)
+  const { t } = useTranslation();
 
   const loginUserContext = async () => {
     setLoading(true)
@@ -25,15 +27,15 @@ const Login = ({chengeStat}) => {
     <form className={styles.register}>
             <div className={styles.title}>
                 <div>
-                  <h2>Login</h2>
-                  <p>Please fill form to register</p>
+                  <h2>{t("Login")}</h2>
+                  <p>{t("Please fill form to register")}</p>
                 </div>
             </div>
 
             <div className={styles.item}>
               <TextField 
               id={`"outlined-basic`}
-              label="User Name" 
+              label={t("User Name")} 
               size='small'
               fullWidth
               value={details.uname}
@@ -44,7 +46,7 @@ const Login = ({chengeStat}) => {
             <div className={styles.item}>
               <TextField 
               id={`outlined-basic`}
-              label="Password" 
+              label={t("Password")}  
               size='small'
               type={"password"}
               fullWidth
@@ -58,11 +60,11 @@ const Login = ({chengeStat}) => {
               onClick={loginUserContext}
               loading={loading} 
               variant="contained">
-                <span>Login</span>
+                <span>{t("Login")}</span>
               </LoadingButton>
               <Button 
               onClick={chengeStat}
-              variant="outlined">Register</Button>
+              variant="outlined">{t("Register")}</Button>
             </div>
 
             {/* <div className={`${styles.item} ${styles.w97}`}>

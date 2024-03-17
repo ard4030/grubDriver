@@ -8,11 +8,15 @@ import TaskView from './TaskView';
 import ChartTask from './ChartTask';
 import { fetchData, getNowDate } from '@/utils/functions';
 import { toast } from 'react-toastify';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { AuthContext } from '@/context/AuthContext';
 
 const AllCont = () => {
   const [data, setData] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+  const { user } = useContext(AuthContext);
 
   const getData = async () => {
     let data = {
@@ -39,9 +43,17 @@ const AllCont = () => {
   }, [])
 
 
+
   return (
     <div>
-        <Head title={"Dashboard"} />
+        <Head title={t("Dashboard")} />
+        {
+          user && user.data.status !== "active" ?
+          <div className='noAct'>
+            <h1>Your Account need to Active!</h1>
+            <button>Go To Profile</button>
+          </div>
+      :
         <div className={styles.myContent}>
             <div className={styles.contWel}>
               <NameWelcome />
@@ -51,10 +63,9 @@ const AllCont = () => {
             <div className={styles.charts}>
               <ChartTask />
               <TaskView loading={loading} tasks={data.rows} />
-            </div>
-
-            
+            </div>       
         </div>
+        }
     </div>
   )
 }

@@ -83,3 +83,16 @@
 .footerBotton{
     margin-top: 15px;
 }
+
+.alrt{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media (max-width:767px) {
+    .myContent{flex-wrap: wrap;padding: 15px!important;}
+    .left{width: 100%!important;}
+    .right{width: 100%!important;}
+    .item{width: 100%!important;}
+    .last{margin-bottom: 30px!important;}
+}

@@ -16,7 +16,7 @@ const UploadBackLicence = () => {
   const {details,setDetails} = useContext(ProfileContext)
 
   useEffect(() => {
-    console.log("dfg")
+
     if(file) uploadFile();
   }, [file])
   
@@ -37,7 +37,7 @@ const UploadBackLicence = () => {
 
     await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/drivers/api/uploadDocument`, formData, {
         onUploadProgress: (progressEvent) => {
-          // console.log('progressEvent', progressEvent)
+       
           if (progressEvent.bytes) {
             setProg(Math.round((progressEvent.loaded / progressEvent.total)*100))
           }

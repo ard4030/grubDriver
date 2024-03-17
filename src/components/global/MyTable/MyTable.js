@@ -37,7 +37,7 @@ const TableView = ({columns,api,method,styles,refresh=false,dataSet=false,dataSe
       todt:todt?todt:getNowDate()
     })
 
-    // console.log(filters)
+
 
     const getData = async () => {
         let x = {};
@@ -54,8 +54,9 @@ const TableView = ({columns,api,method,styles,refresh=false,dataSet=false,dataSe
         if(dataSet){
           dataSetMethod(res)
         }
-        console.log(res.data.details)
+        
         setLoading(false);
+        if(res.success){
           if(res.data.code === 1){
             let x = [];
             res.data.details.rows.forEach((item,index) => {
@@ -72,7 +73,9 @@ const TableView = ({columns,api,method,styles,refresh=false,dataSet=false,dataSe
           }else{
             setData([])
               // alert(data.error)
-          }   
+          }  
+        }
+           
     }
 
     const getRandomuserParams = (params) => ({
@@ -106,10 +109,10 @@ const TableView = ({columns,api,method,styles,refresh=false,dataSet=false,dataSe
         getData()
     }, [filters,refresh])
     
-    // console.log(data)
+ 
 
   return (
-    <div>
+    <div className='tblView'>
       <div className={stylesMe.headTable}>
         <FormControl >
           <InputLabel size='small' id="demo-simple-select-label">Sort By</InputLabel>

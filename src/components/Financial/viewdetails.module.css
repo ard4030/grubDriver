@@ -62,3 +62,9 @@
     font-size: 14px;
     font-weight: 200;
 }
+
+@media (max-width:767px) {
+    .number span{padding: 5px 6px;font-size: 14px;}
+    .balancing{flex-wrap: wrap;}
+    .balancing > div{width: 100%;margin-bottom: 15px;}
+}

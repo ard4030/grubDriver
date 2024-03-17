@@ -134,3 +134,8 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+@media (max-width:767px) {
+    .item{width: 100%!important;}
+    .myContent{padding: 15px!important;}
+}

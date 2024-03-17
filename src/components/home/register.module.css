@@ -95,3 +95,8 @@
 .footerBotton > button:last-child{
     margin-left: 15px;
 }
+
+@media (max-width:767px) {
+    .item{width: 100%;}
+    .goLogin{position: relative;top: 39%;right: 17%;}
+}

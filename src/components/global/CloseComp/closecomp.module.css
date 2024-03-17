@@ -1,0 +1,9 @@
+.cls{
+    position: absolute;
+  top: 0;
+  right: 0;
+  background: #201b1b73;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}

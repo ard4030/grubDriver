@@ -3,3 +3,7 @@
   margin: auto;
   box-sizing: border-box;
 }
+
+@media (max-width:767px) {
+  .myContent{padding: 15px!important;}
+}

@@ -60,3 +60,7 @@
 .el3 {
   font-size: 28px;
 }
+
+@media (max-width:767px) {
+  .myContent{padding: 15px!important;}
+}

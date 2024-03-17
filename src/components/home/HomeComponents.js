@@ -2,6 +2,7 @@
 import { AuthContext } from '@/context/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useContext, useEffect, useState } from 'react'
+import LanguageChanger from '../global/LanguageChanger/LanguageChanger'
 import styles from './homecomponents.module.css'
 import Login from './Login'
 import Register from './Register'
@@ -26,6 +27,7 @@ const HomeComponents = () => {
           status?<Login chengeStat={() => setStatus(!status)} />:<Register chengeStat={() => setStatus(!status)} />
         }
         
+        <LanguageChanger />
       </div>
       <div className={`${styles.rightImage} `}></div>
     </div>

@@ -10,8 +10,10 @@ import TaskImages from './TaskImages';
 import MapLocation from './MapLocation';
 import MapModal from './MapModal';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ViewDetails = ({details}) => {
+    const { t } = useTranslation()
     const [open, setOpen] = useState(false)
     let currentDate;
     let monthName;
@@ -26,19 +28,19 @@ const ViewDetails = ({details}) => {
     details && 
     <div className={styles.details}>
         <div className={styles.headDetails}>
-            <div>
-                <span onClick={() => console.log(JSON.parse(details.json_details))}>Order No - {details.order_id}</span>
-                <p>Order Date <span>{currentDate.getDate()} {monthName.substring(0,3)} @{details.deliverydt.substr(11)}</span></p>
+            <div className={styles.elk}>
+                <span>{t("Order No")} - {details.order_id}</span>
+                <p>{t("Order Date")} <span>{currentDate.getDate()} {monthName.substring(0,3)} @{details.deliverydt.substr(11)}</span></p>
             </div>
             <div className={styles.contImage}> <Image fill src={testBg} /> </div>
         </div>
 
-        <span className={styles.lengthItems}>{`${JSON.parse(details.json_details).length} Items`} </span>
+        <span className={styles.lengthItems}>{`${JSON.parse(details.json_details).length} ${t("Items")}`} </span>
 
         <div className={styles.contDetails}>
             <div className={styles.headDet}>
-                <h5>Customer Details</h5>
-                <button onClick={() => setOpen(true)}>GO TO DIRECTION</button>
+                <h5>{t("Customer Details")}</h5>
+                <button onClick={() => setOpen(true)}>{t("GO TO DIRECTION")}</button>
             </div>
 
             <div className={styles.item}>
@@ -48,7 +50,7 @@ const ViewDetails = ({details}) => {
 
             <div className={styles.item}>
                 <span className={styles.ico}><HiOutlineMapPin /></span>
-                <span className={styles.naming}>{details.delivery_address} <span className={styles.dst}>{`(Distance - ${parseFloat(details.distance).toFixed(2)} mi)`}</span></span>
+                <span className={styles.naming}>{details.delivery_address} <span className={styles.dst}>{`(${t("Distance")} - ${parseFloat(details.distance).toFixed(2)} mi)`}</span></span>
             </div>
 
             <div className={styles.item}>
@@ -57,19 +59,19 @@ const ViewDetails = ({details}) => {
             </div>
 
             <div className={styles.paymentPending}>
-                <span>{`Payment - Pending : `}</span>
+                <span>{`${t("Payment")} - ${t("Pending")} : `}</span>
                 <span className={styles.el1}>£{(parseFloat(details.total_w_tax)-parseFloat(details.amount_paid)).toFixed(2)}</span>
             </div>
         </div>
 
         <div className={styles.deliveryDetails}>
-            <h5>Delivery Details</h5>
+            <h5>{t("Delivery Details")}</h5>
             <div className={styles.dlDet}>
                 <div className={styles.el2}>
-                    <span>Recipient Name</span>
+                    <span>{t("Recipient Name")}</span>
                     <span>John Smith</span>
                 </div>
-                <span className={styles.ch}>CHANGE</span>
+                <span className={styles.ch}>{t("CHANGE")}</span>
             </div>
         </div>
 

@@ -16,6 +16,11 @@ export const AuthWrapper = ({children}) => {
         if(res.success){
             if(res.data.code === 1){
                 setUser(res.data.details)
+                if(res.data.details.data.status === "active"){
+                    router.replace('/home/dashboard')
+                }else{
+                    router.replace('/home/myprofile')
+                }
                 // router.replace('/home/dashboard')
             }else{
                 setUser(null)
@@ -29,26 +34,33 @@ export const AuthWrapper = ({children}) => {
     }
 
     const loginUser = async (details) => {
+        setLoading(true)
         const res = await fetchData('/validateDriver','POST',details);
+        setLoading(false)
         if(res.success){
           if(res.data.code === 1){
             toast.success("Login Successful!")
             localStorage.setItem("driverToken",res.data.details.token)
             setUser(res.data.details)
-            router.replace('/home/dashboard')
+            if(res.data.details.data.status === "active"){
+                router.replace('/home/dashboard')
+            }else{
+                router.replace('/home/myprofile')
+            }
           }else{
             toast.error(res.data.msg)
           }
         }else{
           toast.error(res.error)
         }
-        console.log(res)
+
     }
 
     const logOut = async () => {
         localStorage.removeItem("driverToken");
         isLogin()
     }
+
 
     useEffect(() => {
         isLogin();

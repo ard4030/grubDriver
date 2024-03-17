@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import styles from './viewdetails.module.css'
 
 const ViewDetails = ({details}) => {
+    const { t } = useTranslation();
   return (
 
     <>
@@ -20,12 +22,12 @@ const ViewDetails = ({details}) => {
         </div>
         <div className={styles.balancing}>
             <div>
-                <span className={styles.sp1}>Opening Balance</span>
+                <span className={styles.sp1}>{t("Opening Balance")}</span>
                 <span>£{parseFloat(details.open_balance).toFixed(2)}</span>
             </div>
 
             <div>
-                <span className={styles.sp1}>Close Balance</span>
+                <span className={styles.sp1}>{t("Close Balance")}</span>
                 <span>£{parseFloat(details.current_balance).toFixed(2)}</span>
             </div>
         </div>

@@ -14,24 +14,32 @@ import { useContext, useEffect } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import { Chip } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
+import LanguageChanger from '../global/LanguageChanger/LanguageChanger';
+import { useTranslation } from 'react-i18next';
+import { ViewContext } from '@/context/ViewContext';
 
 const SidebarPanel = () => {
   const {user,loading} = useContext(AuthContext);
+  const {open,setOpen} = useContext(ViewContext)
+  const { t } = useTranslation();
   const pathName = usePathname();
   const router = useRouter();
 
   useEffect(() => {
     // suspended
-    console.log("---",user?.data?.status)
     if(!user && !loading){
       router.push('/')
+    }
+
+    if(user && !loading){
+      if(user.data.status === "suspended") router.push('/home/myprofile')
     }
   }, [user])
   
 
 
   return (
-    <div className={styles.sideBar}>
+    <div className={`${styles.sideBar} ${open && "opening"}`}>
 
       {/* Top Profile*/}
       <div className={styles.topProf}>
@@ -40,75 +48,109 @@ const SidebarPanel = () => {
       </div>
 
       <div className={styles.sectionList}>
-        <span>General</span>
+        <span>{t("General")}</span>
         <ul>
-          <li 
-          onClick={() => router.push('/home/dashboard')}
-          className={`${pathName === "/home/dashboard" && styles.active}`}
-          >
-            <GoHomeFill />
-            <span>Home</span>
-          </li>
+
+          {
+             user && user.data.status === "active" && 
+            <li 
+            onClick={() => {
+              setOpen(false)
+              router.push('/home/dashboard')
+            }}
+            className={`${pathName === "/home/dashboard" && styles.active}`}
+            >
+              <GoHomeFill />
+              <span>{t("Home")}</span>
+            </li>
+          }
+          
 
           <li 
-          onClick={() => router.push('/home/myprofile')}
+          onClick={() => {
+            setOpen(false)
+            router.push('/home/myprofile')
+          }}
           className={`${pathName === "/home/myprofile" && styles.active}`}
           >
             <FaUserLarge />
-            <span>My profile</span>
+            <span>{t("My profile")}</span>
           </li>
 
-          <li 
-          onClick={() => router.push('/home/tasks')}
-          className={`${pathName === "/home/tasks" && styles.active}`}
-          >
-            <FaClipboardList />
-            <span>All Tasks</span>
-          </li>
+          {
+            user && user.data.status === "active" && 
+            <>
+              <li 
+              onClick={() => {
+                setOpen(false)
+                router.push('/home/tasks')
+              }}
+              className={`${pathName === "/home/tasks" && styles.active}`}
+              >
+                <FaClipboardList />
+                <span>{t("All Tasks")}</span>
+              </li>
 
-          <li 
-          onClick={() => router.push('/home/reports')}
-          className={`${pathName === "/home/reports" && styles.active}`}
-          >
-            <HiDocumentReport />
-            <span>Report</span>
-          </li>
+              <li 
+              onClick={() => {
+                setOpen(false)
+                router.push('/home/reports')
+              }}
+              className={`${pathName === "/home/reports" && styles.active}`}
+              >
+                <HiDocumentReport />
+                <span>{t("Report")}</span>
+              </li>
 
-          <li 
-          onClick={() => router.push('/home/financial')}
-          className={`${pathName === "/home/financial" && styles.active}`}
-          >
-            <RiMoneyEuroCircleFill />
-            <span>Financial</span>
-          </li>
+              <li 
+              onClick={() => {
+                setOpen(false)
+                router.push('/home/financial')
+              }}
+              className={`${pathName === "/home/financial" && styles.active}`}
+              >
+                <RiMoneyEuroCircleFill />
+                <span>{t("Financial")}</span>
+              </li>
 
-          <li 
-          onClick={() => router.push('/home/bankaccounts')}
-          className={`${pathName === "/home/bankaccounts" && styles.active}`}
-          >
-            <BsBank2 />
-            <span>Bank Accounts</span>
-          </li>
+              <li 
+              onClick={() => {
+                setOpen(false)
+                router.push('/home/bankaccounts')
+              }}
+              className={`${pathName === "/home/bankaccounts" && styles.active}`}
+              >
+                <BsBank2 />
+                <span>{t("Bank Accounts")}</span>
+              </li>
+            </>
+          }
+
+          
         </ul>
       </div>
 
       <div className={styles.sectionList}>
-        <span>Setting</span>
+        <span>{t("Setting")}</span>
         <ul>
           <li 
-          onClick={() => router.push('/home/changepassword')}
+          onClick={() => {
+            setOpen(false)
+            router.push('/home/changepassword')
+          }}
           className={`${pathName === "/home/changepassword" && styles.active}`}
           >
             <MdPassword />
-            <span>Change Password</span>
+            <span>{t("Change Password")}</span>
           </li>
 
           <li >
             <LiaAffiliatetheme />
-            <span>Darkmod</span>
+            <span>{t("Darkmod")}</span>
           </li>
         </ul>
       </div>
+      <LanguageChanger left={"7%"} />
     </div>
   )
 }

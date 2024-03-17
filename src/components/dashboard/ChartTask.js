@@ -1,5 +1,6 @@
 import { fetchData, getNowDate } from '@/utils/functions';
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import styles from './allcont.module.css'
 import ChartComp from './ChartComp';
@@ -7,6 +8,7 @@ import ChartComp from './ChartComp';
 const ChartTask = () => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   const getData = async () =>{
     let myData = {
@@ -25,7 +27,6 @@ const ChartTask = () => {
     }else{
       toast.error(res.data.msg)
     }
-    // console.log("myyyyyy",res.data.details.chart)
     setLoading(false)
   }
 
@@ -35,7 +36,7 @@ const ChartTask = () => {
   
   return (
     <div>
-        <h4 className={styles.el4}>Your Chart tasks</h4>
+        <h4 className={styles.el4}>{t("Your Chart tasks")}</h4>
         <ChartComp data={data}  />
     </div>
   )

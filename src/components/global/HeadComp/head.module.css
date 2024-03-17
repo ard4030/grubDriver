@@ -33,3 +33,19 @@
 .el6 h3{
     margin: 0;
 }
+
+.eun{
+    display: flex;
+    align-items: center;
+}
+
+.eun div{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 25px;
+}
+
+@media (min-width:767px) {
+    .bhg{display: none!important;}
+}

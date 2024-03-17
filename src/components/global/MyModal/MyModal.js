@@ -1,9 +1,11 @@
 import { LoadingButton } from '@mui/lab'
+import { useTranslation } from 'react-i18next'
 import styles from './mymodal.module.css'
 
 const MyModal = ({children,open,onClose,onOpen,onOk,title,width,okBtn,okText,loadingBtn,loadingBtnText,
 loadingBtnClick,loadingBtnLoading=false,showHeader=true,showFooter=true
 }) => {
+  const { t } = useTranslation();
   return (
       <div 
       style={{display:open?"flex":"none"}}
@@ -29,7 +31,7 @@ loadingBtnClick,loadingBtnLoading=false,showHeader=true,showFooter=true
                   {loadingBtnText && loadingBtnText}
                 </LoadingButton>}
                 {okBtn && <button onClick={() => onOk()}>{okText && okText}</button>}
-                <button onClick={() => onClose()}>Close</button>
+                <button onClick={() => onClose()}>{t("Close")}</button>
             </footer>
               }
           </div>

@@ -1,7 +1,7 @@
 import { Button, FormControl, InputLabel, MenuItem, Select, Switch, TextField } from '@mui/material'
 import styles from './allcount.module.css'
 import { FaPlus } from "react-icons/fa";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { fetchData, listcountry } from '@/utils/functions';
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
@@ -11,11 +11,15 @@ import MyModal from '../global/MyModal/MyModal';
 import { toast } from 'react-toastify';
 import { Popconfirm } from 'antd';
 import Head from '../global/HeadComp/Head';
+import { useTranslation } from 'react-i18next';
+import { AuthContext } from '@/context/AuthContext';
 
 const AllCont = () => {
+    const { t } = useTranslation();
     const [data, setData] = useState([]);
     const [loading, setloading] = useState(false);
     const [open, setOpen] = useState(false);
+    const {user} = useContext(AuthContext)
     const countrys = listcountry();
     const [account,setAccount] = useState({
         account_name:"",
@@ -128,7 +132,15 @@ const AllCont = () => {
 
   return (
     <div>
-        <Head title={"Bank Accounts"} />
+        <Head title={t("Bank Accounts")} />
+        {
+          user && user.data.status !== "active" ?
+          <div className='noAct'>
+            <h1>Your Account need to Active!</h1>
+            <button>Go To Profile</button>
+          </div>
+      :
+      <>
         <div className={styles.myContent}>
             <header>
                 <div></div>
@@ -136,7 +148,7 @@ const AllCont = () => {
                 onClick={() => setOpen(true)}
                 style={{background:"#0a99ff"}}
                 variant='contained'>
-                <FaPlus /> &nbsp;  Add New
+                <FaPlus /> &nbsp;  {t("Add New")}
                 </Button>
             </header>
 
@@ -150,12 +162,12 @@ const AllCont = () => {
                                 setOpen(true)
                             }}><FiEdit /></span>
                             <Popconfirm
-                                title="Delete the task"
-                                description="Are you sure to delete this task?"
+                                title={t("Delete the task")}
+                                description={t("Are you sure to delete this task?")}
                                 onConfirm={() => deleteAccount(item.acc_id)}
                                 // onCancel={cancel}
-                                okText="Yes"
-                                cancelText="No"
+                                okText={t("Yes")}
+                                cancelText={t("No")}
                             >
                                 <span><MdDeleteOutline /></span>
                             </Popconfirm>
@@ -182,11 +194,11 @@ const AllCont = () => {
 
         <MyModal 
          open={open}
-         loadingBtnText={`${account.acc_id > 0 ? "Edit" :"Create"}`}
+         loadingBtnText={`${account.acc_id > 0 ? t("Edit") :t("Create")}`}
          loadingBtnLoading={loading}
          loadingBtn={true}
          loadingBtnClick={() => SaveData()}
-         title={`Save`}
+         title={t("Save")}
          onClose = {() => closeModal()}
          onOpen = {() => setOpen(true)}
         //  onOk = {() => SaveData(cat)}
@@ -195,7 +207,7 @@ const AllCont = () => {
           style={{marginBottom:"15px"}}
           fullWidth 
           id="outlined-basic" 
-          label="Holder's Name" 
+          label={t("Holder's Name")} 
           value={account.account_name}
           onChange={handleChange}
           name="account_name"
@@ -208,7 +220,7 @@ const AllCont = () => {
           onChange={handleChange}
           name="bank_account_number"
           id="outlined-basic" 
-          label="Account Number" 
+          label={t("Account Number")} 
           variant="outlined" />
           
           <TextField 
@@ -218,7 +230,7 @@ const AllCont = () => {
           onChange={handleChange}
           name="swift_code"
           id="outlined-basic" 
-          label="Sort Code" 
+          label={t("Sort Code")} 
           variant="outlined" />
 
           <TextField 
@@ -228,7 +240,7 @@ const AllCont = () => {
           value={account.bank_name}
           onChange={handleChange}
           name="bank_name"
-          label="Bank Name in Full" 
+          label={t("Bank Name in Full")} 
           variant="outlined" />
 
           <TextField 
@@ -238,11 +250,11 @@ const AllCont = () => {
           onChange={handleChange}
           name="bank_branch"
           id="outlined-basic" 
-          label="Bank Branch City" 
+          label={t("Bank Branch City")} 
           variant="outlined" />
 
         <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Bank Branch Country</InputLabel>
+        <InputLabel id="demo-simple-select-label">{t("Bank Branch Country")}</InputLabel>
         <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -269,6 +281,8 @@ const AllCont = () => {
           </div>  
 
         </MyModal>
+      </>
+      }
     </div>
   )
 }
